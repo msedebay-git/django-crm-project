@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [ "develop" ]
 
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+
 jobs:
   build:
 
@@ -13,10 +18,16 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
+
         python-version: [3.7, 3.8, 3.9, 3.11]
 
     steps:
     - uses: actions/checkout@v3
+
+        python-version: [3.7, 3.8, 3.9, 3.11]
+
+    steps:
+    - uses: actions/checkout@v4
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
